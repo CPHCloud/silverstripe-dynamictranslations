@@ -13,9 +13,28 @@ class DynamicTranslation extends DataObject implements PermissionProvider {
 	/**
 	 * @var array
 	 */
+	private static $has_one = array(
+		'Category' => 'DynamicTranslationCategory'
+	);
+
+	/**
+	 * @var array
+	 */
 	private static $summary_fields = array(
-		'Entity',
-		'String'
+		'Entity' => 'Entity',
+		'String' => 'String',
+		'Category.Title' => 'Category'
+	);
+
+	/**
+	 * @var array
+	 */
+	private static $searchable_fields = array(
+		'Entity' => 'Entity',
+		'String' => 'String',
+		'CategoryID' => array(
+			'title' => 'Category'
+		)
 	);
 
 	/**

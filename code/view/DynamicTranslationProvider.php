@@ -45,7 +45,6 @@ class DynamicTranslationProvider implements TemplateGlobalProvider {
 		$translated = $adapter->translate($entity, $string, $injectionArray);
 
 		// Don't escape HTML tags
-		// TODO
 		$field = DBField::create_field('HTMLText', $translated);
 		$field->setOptions(array('shortcodes' => false));
 		return $field;
