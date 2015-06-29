@@ -26,7 +26,7 @@ class DynamicTranslationCategory extends DataObject {
 		if (!self::get()->count()) {
 			$categories = $this->config()->default_categories;
 
-			foreach ($categories as $name) {
+			if ($categories) foreach ($categories as $name) {
 				self::create(array('Title' => $name))->write();
 			}
 		}
